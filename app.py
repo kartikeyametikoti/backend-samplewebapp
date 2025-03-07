@@ -10,10 +10,10 @@ CORS(app)
 bcrypt = Bcrypt(app)
 
 # Database Configuration (Replace with your AWS RDS credentials)
-DB_HOST = "flask-db.cl8yowsg0n3z.us-west-2.rds.amazonaws.com"
-DB_USER = "admin"
-DB_PASSWORD = "ezhil789"
-DB_NAME = "flask-db"
+DB_HOST = "localhost"
+DB_USER = "kartikuser"
+DB_PASSWORD = "password"
+DB_NAME = "kartik_database"
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -62,4 +62,4 @@ def login():
         return jsonify({"message": "Invalid credentials"}), 401
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
